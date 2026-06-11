@@ -106,7 +106,7 @@ header {
 
 /* Banner principal con imagen de fondo animada y llamada a la acción. */
 .banner {
-    background-image: linear-gradient(rgba(11,44,81,0.95), rgba(11,44,81,0.95)), url('./ima/suerte.jpeg');
+    background-image: linear-gradient(100deg,#000000, #00000010), url('../ima/suerte.jpeg');
     height: 50rem;
     background-size: cover;
     background-position: center;

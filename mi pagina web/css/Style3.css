@@ -197,9 +197,9 @@ header {
     position: relative;
     overflow: hidden;
 }
-.category-moca { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./imagenes/3e3.jfif'); background-size: cover; }
-.category-expreso { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./imagenes/descargar\ \(6\).jfif'); background-size: cover; }
-.category-capuchino { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./imagenes/Look\ for\ a\ laptop_\ Talk\ to\ us\ today\ +254712787625_\ We\ deliver\ country\ wide\ ✅.jfif'); background-size: cover; background-position: center; }
+.category-moca { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imagenes/3e3.jfif'); background-size: cover; }
+.category-expreso { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imagenes/descargar\ \(6\).jfif'); background-size: cover; }
+.category-capuchino { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imagenes/Look\ for\ a\ laptop_\ Talk\ to\ us\ today\ +254712787625_\ We\ deliver\ country\ wide\ ✅.jfif'); background-size: cover; background-position: center; }
 
 .card-category p {
     font-size: 2.2rem;

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crea Tu Propia Suerte - Tienda de Informática</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./Style3.css">
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class='bx bx-user-check'></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">+240-222-434-526</span>
+                    </div>
+                </div>
+                <div class="container-logo">
+                    <i class='bx bxl-slack'></i>
+                    <h1 class="logo"><a href="#inicio">CREA TU PROPIA SUERTE</a></h1>
+                </div>
+                <div class="content-shopping-cart" onclick="toggleCart()">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="container-navbar">
+            <nav class="navbar container">
+                
+                <ul class="productos">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Sobre nosotros</a></li>
+                    <li><a href="../intento/index-registro.html">Registrarse</a></li>
+                    <li><a href="javascript:void(0)" class="nav-admin auth-link" data-auth-role="personal">Personal</a></li>
+                    <li><a href="javascript:void(0)" class="nav-admin auth-link" data-auth-role="admin">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="shopping-cart-window" class="cart-window">
+        <h3>Tu Carrito</h3>
+        <div id="cart-items-container">
+            <p style="font-size: 1.2rem; color: #777; text-align: center;">El carrito está vacío</p>
+        </div>
+        <div class="cart-total" id="cart-total-price">Total: 0 XAF</div>
+        <button class="btn-submit" onclick="checkoutCart()">Enviar Pedido</button>
+    </div>
+
+    <section id="inicio" class="banner">
+        <div class="content-banner">
+            <p>Modelos potentes, elegantes y al mejor precio del mercado.</p>
+            <h2>LA TECNOLOGÍA <br>A TU ALCANCE<br> TU ÉXITO DEPENDE DE TI</h2>
+            <a href="#productos">Ver productos</a>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section class="container container-features">
+            <div class="card-features"> 
+                <div class="card-feature">
+                    <i class='bx bxs-memory-card'></i>
+                    <div class="feature-content">
+                        <span>Almacenamiento</span>
+                        <p>SSD de hasta 1TB</p>
+                    </div>
+                </div>
+                <div class="card-feature">
+                    <i class='bx bx-chip'></i>
+                    <div class="feature-content">
+                        <span>Memoria RAM</span>
+                        <p>Hasta 32GB DDR5</p>
+                    </div>
+                </div>
+                <div class="card-feature">
+                    <i class='bx bxs-battery-low'></i>
+                    <div class="feature-content">
+                        <span>Autonomía Batería</span>
+                        <p>Rendimiento al 100%</p>
+                    </div>
+                </div>
+                <div class="card-feature">
+                    <i class='bx bx-refresh'></i>
+                    <div class="feature-content">
+                        <span>Procesadores</span>
+                        <p>Intel Core i7 / Ryzen 7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="categorias" class="container top-categories">
+            <h1 class="heading-1">Gamas Disponibles</h1>
+            <div class="container-categories">
+                <div class="card-category category-moca"><p>Diseño Profesional</p></div>
+                <div class="card-category category-expreso"><p>Máxima Potencia</p></div>
+                <div class="card-category category-capuchino"><p>Ultra Portátiles</p></div>
+            </div>
+        </section>
+
+        <section class="container top-products">
+            <h1 id="productos" class="heading-1">Nuestro Catálogo</h1>
+            <div class="container-options">
+                <span><a href="#destacados">Destacados</a></span>
+                <span><a href="#recientes">Recientes</a></span>
+                <span><a href="#ventas">Más Vendidos</a></span>
+            </div>
+                
+            <div id="destacados" class="container-products">
+                <div class="card-product" data-id="1" data-name="DELL Inspiron" data-price="160000">
+                    <div class="container-img">
+                        <img src="./ima/DELL.jpeg" alt="Portátil DELL">
+                        <span class="discount">-9%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>DELL Inspiron</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> i7 12a Gen</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 512GB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">160.000 XAF <span>170.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="2" data-name="HP Pavilion 14" data-price="179000">
+                    <div class="container-img">
+                        <img src="./ima/hp/3.jpeg" alt="Portátil HP">
+                        <span class="discount">-7%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>Hp elitebook</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> Ryzen 7</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 1TB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">155.000 XAF <span>170.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="3" data-name="Lenovo IdeaPad" data-price="130000">
+                    <div class="container-img">
+                        <img src="./ima/LENOVO.jpeg" alt="Portátil Lenovo">
+                        <span class="discount">-5%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>Lenovo IdeaPad</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> i5 11a Gen</p>
+                            <p><i class='bx bxs-memory-card'></i> 8GB RAM / 256GB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">140.000 XAF <span>165.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="4" data-name="MacBook Air M2" data-price="280000">
+                    <div class="container-img">
+                        <img src="./ima/MACBOOK AIR.jpeg" alt="MacBook Air">
+                        <span class="discount">-11%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        </div>
+                        <h3>MacBook Air M2</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> Chip M2 Apple</p>
+                            <p><i class='bx bxs-memory-card'></i> 8GB RAM / 512GB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">280.000 XAF <span>295.000 XAF</span></p>
+                    </div>
+                </div>
+            </div> 
+
+            <div id="recientes" class="container-products">
+                <div class="card-product" data-id="1" data-name="DELL Inspiron" data-price="160000">
+                    <div class="container-img">
+                        <img src="./ima/dell/2.jfif" alt="Portátil DELL">
+                        <span class="discount">-10%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>DELL Latitude</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> i7 </p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 1TB </p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">180.000 XAF <span>195.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="2" data-name="HP Pavilion 14" data-price="179000">
+                    <div class="container-img">
+                        <img src="./ima/hp/4.jpeg" alt="Portátil HP">
+                        <span class="discount">-13%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>HP Használt</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> Ryzen 7</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 1TB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">169.000 XAF <span>180.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="3" data-name="Lenovo IdeaPad" data-price="130000">
+                    <div class="container-img">
+                        <img src="./ima/lenovo/LENOVO T490_Intel core i5 _256 SSD 8gb ram _Keyboard light✨ _TOUCHSCREEN _8TH Generation _Fingerprint 🫆 🫆 _  @390k.jfif" alt="Portátil Lenovo">
+                        <span class="discount">-12%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>Lenovo IdeaPad V15 G4</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> i7 11a Gen</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 256GB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">150.000 XAF <span>175.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="4" data-name="MacBook Air M2" data-price="280000">
+                    <div class="container-img">
+                        <img src="./ima/mac/descargar (6).jfif" alt="MacBook Air">
+                        <span class="discount">-8%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        </div>
+                        <h3>MacBook air 13 M4 </h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> Chip M2 Apple</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 1TGB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">300.000 XAF <span>315.000 XAF</span></p>
+                    </div>
+                </div>
+            </div> 
+
+            <div id="ventas" class="container-products">
+                <div class="card-product" data-id="1" data-name="DELL Inspiron" data-price="160000">
+                    <div class="container-img">
+                        <img src="./ima/dell/22.jpeg" alt="Portátil DELL">
+                        <span class="discount">-11%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>Dell latitude</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> i7 12a Gen</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 1TB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">190.000 XAF <span>220.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="2" data-name="HP Pavilion 14" data-price="179000">
+                    <div class="container-img">
+                        <img src="./ima/HP.14.jpeg" alt="Portátil HP">
+                        <span class="discount">-7%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>HP Pavilion 14</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> Ryzen 7</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 1TB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">189.000 XAF <span>190.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="3" data-name="Lenovo IdeaPad" data-price="130000">
+                    <div class="container-img">
+                        <img src="./ima/lenovo/Lenovo X1 Carbon gen 4th_- intel core i7 6600U_- _ram 16gb_- _ssd 256gb_- _LED 14” FHD IPS.jfif" alt="Portátil Lenovo">
+                        <span class="discount">-9%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bx-star'></i>
+                        </div>
+                        <h3>Lenovo IdeaPad Slim</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> i5 11a Gen</p>
+                            <p><i class='bx bxs-memory-card'></i> 8GB RAM / 256GB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">130.000 XAF <span>160.000 XAF</span></p>
+                    </div>
+                </div>
+
+                <div class="card-product" data-id="4" data-name="MacBook Air M2" data-price="280000">
+                    <div class="container-img">
+                        <img src="./ima/mac/Apple MacBook Pro (M4) Review_ The Best Laptop in___.jfif" alt="MacBook Air">
+                        <span class="discount">-13%</span>
+                    </div>
+                    <div class="content-card-product">
+                        <div class="stars">
+                            <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                        </div>
+                        <h3>M4 MacBook Air - Starlight</h3>
+                        <div class="specs-box">
+                            <p><i class='bx bx-chip'></i> Chip M2 Apple</p>
+                            <p><i class='bx bxs-memory-card'></i> 16GB RAM / 1TGB SSD</p>
+                        </div>
+                        <div class="quantity-selector">
+                            <label>Cantidad:</label>
+                            <input type="number" value="1" min="1" class="product-qty">
+                        </div>
+                        <span class="add-cart" onclick="addToCart(this)"><i class='bx bxs-basket'></i></span>
+                        <p class="price">310.000 XAF <span>325.000 XAF</span></p>
+                    </div>
+                </div>
+            </div> 
+        </section>
+
+        <section id="nosotros" class="container about-section">
+            <h1 class="heading-1">Sobre Nosotros</h1>
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Impulsando tu futuro tecnológico</h2>
+                    <p>En <strong>Crea Tu Propia Suerte</strong>, creemos firmemente que las herramientas informáticas adecuadas son el motor del éxito personal y profesional. <br> Inició como un negocio pequeño de ventas presenciales, ofreciendo productos a clientes locales. Con el paso del tiempo, la demanda de sus productos ha crecido, pero su alcance sigue siendo limitado debido a la falta de presencia en internet. Por esta razón, surge la necesidad de implementar una página web que permita ampliar su mercado y mejorar la comunicación con los clientes. No solo se enfoca en vender, sino en ofrecer soluciones reales mediante una selección cuidadosa de dispositivos que cumplan con estándares de calidad y durabilidad.</p>
+                </div>
+                <div class="about-image">
+                    <img src="./ima/sobre nosotros/WhatsApp Image 2026-06-06 at 15.28.17.jpeg" alt="Equipo">
+                </div>
+            </div>
+            
+        </section>
+
+        <div id="auth-modal" class="auth-modal-overlay" style="display: none;">
+            <div class="auth-modal-box">
+                <h3 id="auth-modal-title">Acceso Restringido</h3>
+                <p id="auth-modal-desc">Introduce la clave de acceso:</p>
+                <input type="password" id="auth-password-input" placeholder="••••" onkeypress="handleAuthKeyPress(event)">
+                <div class="auth-modal-buttons">
+                    <button class="btn-modal btn-cancel" onclick="closeAuthModal()">Cancelar</button>
+                    <button class="btn-modal btn-confirm" onclick="verifyPassword()">Ingresar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container container">
+            <div class="footer-box border-right">
+                <div class="footer-logo">
+                    <i class='bx bxl-slack'></i>
+                    <h2>CREA TU PROPIA SUERTE</h2>
+                </div>
+                <p class="footer-marketing">
+                    "El éxito en la era digital no es una cuestión de azar, sino de las herramientas que eliges para construirlo. En <strong>Crea Tu Propia Suerte</strong> seleccionamos minuciosamente cada componente, memoria y procesador para asegurar que tu rendimiento nunca tenga límites. No dejes tu futuro en manos de la suerte; equípate con los mejores y diséñalo tú mismo."
+                </p>
+                <div class="footer-socials">
+                    <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio"><i class='bx bx-chevron-right'></i> Inicio</a></li>
+                    <li><a href="#productos"><i class='bx bx-chevron-right'></i> Catálogo de Productos</a></li>
+                    <li><a href="#nosotros"><i class='bx bx-chevron-right'></i> Sobre Nosotros</a></li>
+                    <li><a href="#registro"><i class='bx bx-chevron-right'></i> Crear Cuenta</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contacto Operativo</h3>
+                <ul class="footer-contact">
+                    <li><i class='bx bx-map' style="color: #6495ed;"></i> Malabo , Guinea Ecuatorial</li>
+                    <li><i class='bx bx-phone' style="color: #2ecc71;"></i> +240-222-434-526</li>
+                    <li><i class='bx bx-envelope' style="color: #6495ed;"></i> soporte@creatupropiasuerte.gq</li>
+                    <li><i class='bx bx-time' style="color: #f1c40f;"></i> Lun - Sáb: 8:00 AM - 7:00 PM</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> <strong>Crea Tu Propia Suerte</strong>. Todos los derechos reservados. Diseñado para tu éxito.</p>
+        </div>
+    </footer> 
+    <script src="./script.js"></script>
+</body>
+</html>

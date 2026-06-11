@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./Style3.css">
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class='bx bx-user-check'></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">+240-222-434-526</span>
+                    </div>
+                </div>
+                <div class="container-logo">
+                    <i class='bx bxl-slack'></i>
+                    <h1 class="logo"><a href="#inicio">CREA TU PROPIA SUERTE</a></h1>
+                </div>
+                <div class="content-shopping-cart" onclick="toggleCart()">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="container-navbar">
+            <nav class="navbar container">
+                
+                <ul class="productos">
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Sobre nosotros</a></li>
+                    <li><a href="#registro">Registrarse</a></li>
+                    <li><a href="javascript:void(0)" class="nav-admin auth-link" data-auth-role="personal">Personal</a></li>
+                    <li><a href="javascript:void(0)" class="nav-admin auth-link" data-auth-role="admin">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container admin-section">
+            <h1 class="heading-1" style="color: #27ae60;"><i class='bx bx-briefcase'></i> Panel de Personal</h1>
+            <p style="text-align:center; font-size:1.4rem; margin-bottom:2rem;">Espacio interno para la validación, confirmación o rechazo de pedidos activos.</p>
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID Pedido</th>
+                            <th>Detalles del Pedido</th>
+                            <th>Total</th>
+                            <th>Acciones de Validación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="personal-table-body">
+                        <tr>
+                            <td colspan="4" style="text-align:center; font-size:1.3rem; padding:2rem; color:#777;">No hay pedidos pendientes de validar en este momento.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div id="auth-modal" class="auth-modal-overlay" style="display: none;">
+            <div class="auth-modal-box">
+                <h3 id="auth-modal-title">Acceso Restringido</h3>
+                <p id="auth-modal-desc">Introduce la clave de acceso:</p>
+                <input type="password" id="auth-password-input" placeholder="••••" onkeypress="handleAuthKeyPress(event)">
+                <div class="auth-modal-buttons">
+                    <button class="btn-modal btn-cancel" onclick="closeAuthModal()">Cancelar</button>
+                    <button class="btn-modal btn-confirm" onclick="verifyPassword()">Ingresar</button>
+                </div>
+            </div>
+        </div>
+
+    <footer>
+        <div class="footer-container container">
+            <div class="footer-box border-right">
+                <div class="footer-logo">
+                    <i class='bx bxl-slack'></i>
+                    <h2>CREA TU PROPIA SUERTE</h2>
+                </div>
+                <p class="footer-marketing">
+                    "El éxito en la era digital no es una cuestión de azar, sino de las herramientas que eliges para construirlo. En <strong>Crea Tu Propia Suerte</strong> seleccionamos minuciosamente cada componente, memoria y procesador para asegurar que tu rendimiento nunca tenga límites. No dejes tu futuro en manos de la suerte; equípate con los mejores y diséñalo tú mismo."
+                </p>
+                <div class="footer-socials">
+                    <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio"><i class='bx bx-chevron-right'></i> Inicio</a></li>
+                    <li><a href="#productos"><i class='bx bx-chevron-right'></i> Catálogo de Productos</a></li>
+                    <li><a href="#nosotros"><i class='bx bx-chevron-right'></i> Sobre Nosotros</a></li>
+                    <li><a href="#registro"><i class='bx bx-chevron-right'></i> Crear Cuenta</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contacto Operativo</h3>
+                <ul class="footer-contact">
+                    <li><i class='bx bx-map' style="color: #6495ed;"></i> Malabo , Guinea Ecuatorial</li>
+                    <li><i class='bx bx-phone' style="color: #2ecc71;"></i> +240-222-434-526</li>
+                    <li><i class='bx bx-envelope' style="color: #6495ed;"></i> soporte@creatupropiasuerte.gq</li>
+                    <li><i class='bx bx-time' style="color: #f1c40f;"></i> Lun - Sáb: 8:00 AM - 7:00 PM</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> <strong>Crea Tu Propia Suerte</strong>. Todos los derechos reservados. Diseñado para tu éxito.</p>
+        </div>
+    </footer>    
+        <script src="./script.js"></script>
+</body>
+</html>

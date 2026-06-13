@@ -1,17 +1,17 @@
-const STORAGE_KEY = 'ctps_orders'; // clave usada para persistir pedidos en localStorage
+const STORAGE_KEY = 'ctps_orders'; 
 
-let cart = []; // carrito temporal del cliente antes de enviar el pedido
-let ordersMasterList = []; // lista maestra de pedidos para personal y administrador
-let orderIncrementId = 1001; // identificador secuencial para cada nuevo pedido
+let cart = []; 
+let ordersMasterList = []; 
+let orderIncrementId = 1001; 
 
-let currentAuthRole = ''; // rol activo en el modal de autenticación
+let currentAuthRole = ''; 
 
-// Guarda la lista de pedidos actual en el almacenamiento local del navegador.
+
 function saveOrdersToStorage() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(ordersMasterList));
 }
 
-// Carga los pedidos guardados al iniciar la aplicación.
+
 function loadOrdersFromStorage() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -26,13 +26,13 @@ function loadOrdersFromStorage() {
     }
 }
 
-// Actualiza las tablas de personal y administrador con los pedidos sincronizados.
+
 function syncOrderTables() {
     renderPersonalTable();
     renderAdminTable();
 }
 
-// Muestra u oculta la ventana del carrito de compras en la página.
+
 function toggleCart() {
     const cartWindow = document.getElementById('shopping-cart-window');
     if (cartWindow.style.display === 'block') {
@@ -43,7 +43,7 @@ function toggleCart() {
     }
 }
 
-// Añade el producto seleccionado al carrito con la cantidad indicada.
+
 function addToCart(buttonElement) {
     const card = buttonElement.closest('.card-product');
     const id = card.getAttribute('data-id');
@@ -70,7 +70,7 @@ function addToCart(buttonElement) {
     updateCartUI();
 }
 
-/* Actualiza el contador del carrito, la lista de productos y el total visible. */
+
 function updateCartUI() {
     const countElement = document.getElementById('cart-count');
     const container = document.getElementById('cart-items-container');
@@ -104,7 +104,7 @@ function updateCartUI() {
     totalElement.innerText = `Total: ${grandTotal.toLocaleString()} XAF`;
 }
 
-/* Convierte los productos del carrito en un pedido, lo guarda y actualiza las tablas. */
+
 function checkoutCart() {
     if (cart.length === 0) {
         alert("El carrito está vacío. Agrega algún producto para realizar un pedido.");
@@ -128,7 +128,7 @@ function checkoutCart() {
     ordersMasterList.push(newOrder);
     saveOrdersToStorage();
 
-    alert(`📦 ¡Pedido enviado con éxito!\nEl mensaje ha llegado al Panel de Personal para su correspondiente confirmación o rechazo.`);
+    alert(` ¡Pedido enviado con éxito!\nEl mensaje ha llegado al Personal para su correspondiente confirmación o rechazo.`);
 
     cart = [];
     updateCartUI();
@@ -138,7 +138,7 @@ function checkoutCart() {
     syncOrderTables();
 }
 
-/* Dibuja la tabla de pedidos pendientes que el personal debe confirmar o rechazar. */
+
 function renderPersonalTable() {
     const tbody = document.getElementById('personal-table-body');
     if (!tbody) return;
@@ -166,7 +166,7 @@ function renderPersonalTable() {
     });
 }
 
-/* Dibuja el historial completo de pedidos para que el administrador lo revise. */
+
 function renderAdminTable() {
     const tbody = document.getElementById('admin-table-body');
     if (!tbody) return;
@@ -194,12 +194,12 @@ function renderAdminTable() {
     });
 }
 
-/* Cambia el estado de un pedido y refresca las tablas para personal y admin. */
+
 function changeOrderStatus(orderId, newStatus) {
     const order = ordersMasterList.find(o => o.id === orderId);
     if (order) {
         order.status = newStatus;
-        // Guarda el cambio de estado para que personal y administrador vean el resultado.
+        
         saveOrdersToStorage();
         alert(`Estado del pedido #${orderId} actualizado a: "${newStatus}"`);
         renderPersonalTable();
@@ -207,7 +207,7 @@ function changeOrderStatus(orderId, newStatus) {
     }
 }
 
-/* Muestra el ventana modal de contraseña para acceso de personal o administrador. */
+
 function openAuthModal(role) {
     currentAuthRole = role;
     const modal = document.getElementById('auth-modal');
@@ -229,49 +229,49 @@ function openAuthModal(role) {
     input.focus();
 }
 
-/* Cierra el modal de autenticación y limpia el rol temporal seleccionado. */
+
 function closeAuthModal() {
     document.getElementById('auth-modal').style.display = 'none';
     currentAuthRole = '';
 }
 
-/* Valida la contraseña ingresada y redirige al panel correspondiente. */
+
 function verifyPassword() {
     const inputPassword = document.getElementById('auth-password-input').value.trim();
 
     if (currentAuthRole === 'personal') {
         if (inputPassword === '1234') {
-            alert('🔑 ¡Contraseña correcta! Redirigiendo al Panel de Personal.');
+            alert(' ¡Contraseña correcta! Redirigiendo al Panel de Personal.');
             closeAuthModal();
             window.location.href = './indexpanel-personal.html';
             return;
         }
-        alert('❌ Contraseña incorrecta. Acceso Personal denegado.');
+        alert(' Contraseña incorrecta. Acceso Personal denegado.');
         return;
     }
 
     if (currentAuthRole === 'admin') {
         if (inputPassword === '22') {
-            alert('👑 ¡Contraseña correcta! Redirigiendo al Panel de Administrador.');
+            alert(' ¡Contraseña correcta! Redirigiendo al Panel de Administrador.');
             closeAuthModal();
             window.location.href = './indexpanel-admin.html';
             return;
         }
-        alert('❌ Contraseña incorrecta. Acceso Admin denegado.');
+        alert(' Contraseña incorrecta. Acceso Admin denegado.');
         return;
     }
 
     alert('Selecciona primero el tipo de acceso: Personal o Admin.');
 }
 
-/* Envía la verificación de contraseña cuando el usuario presiona Enter. */
+
 function handleAuthKeyPress(event) {
     if (event.key === 'Enter') {
         verifyPassword();
     }
 }
 
-/* Configura los enlaces de acceso para abrir el modal de autenticación. */
+
 function setupAuthLinks() {
     const authLinks = document.querySelectorAll('.auth-link');
     authLinks.forEach(link => {

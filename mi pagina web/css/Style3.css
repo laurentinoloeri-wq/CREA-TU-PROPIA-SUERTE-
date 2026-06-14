@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,19 @@ html {
     font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth; 
+}
+
+.bx, .bxs, .bxl {
+    display: inline-block;
+    font-family: 'boxicons' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    speak: none;
 }
 
 
@@ -867,3 +882,4 @@ footer {
     background-color: #2ecc71;
     color: white;
 }
+
